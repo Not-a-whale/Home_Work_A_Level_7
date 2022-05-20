@@ -13,8 +13,18 @@ namespace ClassHierarchy_hw
 
         public static void Main(string[] args)
         {
-            // filling all the ingredient types
+
             IngredientType[] ingredientTypes = new IngredientType[0];
+            Ingredient[] ingredients = new Ingredient[0];
+            GenerateAllTheIngredients(ref IngredientType[] ingredientTypes, Ingredient[] ingredients);
+
+            // Calling the interface
+            SaladBuilderInterface(ingredientTypes, ingredients);
+        }
+
+        public static GenerateAllTheIngredients(ref IngredientType[] ingredientTypes, Ingredient[] ingredients)
+        {
+            // filling all the ingredient types
             CreateIngredientTypes(ref ingredientTypes, new IngredientType("greens", 3));
             CreateIngredientTypes(ref ingredientTypes, new IngredientType("vegetables", 6));
             CreateIngredientTypes(ref ingredientTypes, new IngredientType("fruit", 2));
@@ -23,8 +33,7 @@ namespace ClassHierarchy_hw
             CreateIngredientTypes(ref ingredientTypes, new IngredientType("dressing", 1));
             CreateIngredientTypes(ref ingredientTypes, new IngredientType("yum-ify!", 3));
 
-            // filling all the ingredients
-            Ingredient[] ingredients = new Ingredient[0];
+            // Calling the interface
             CreateIngredients(ref ingredients, new Ingredient("Green leaf lettuce", 15.0, 100, "gramm", "greens"));
             CreateIngredients(ref ingredients, new Ingredient("Kale", 49.0, 100, "gramm", "greens"));
             CreateIngredients(ref ingredients, new Ingredient("Bok Choy", 17.0, 100, "gramm", "greens"));
@@ -49,9 +58,6 @@ namespace ClassHierarchy_hw
             CreateIngredients(ref ingredients, new Ingredient("Goat Cheese", 364.0, 100, "gramm", "yum-ify!"));
             CreateIngredients(ref ingredients, new Ingredient("Cashews", 553.0, 100, "gramm", "yum-ify!"));
             CreateIngredients(ref ingredients, new Ingredient("Croutons", 407.0, 100, "gramm", "yum-ify!"));
-
-            // Calling the interface
-            SaladBuilderInterface(ingredientTypes, ingredients);
         }
 
         // A method that creates categories
@@ -71,12 +77,12 @@ namespace ClassHierarchy_hw
         {
             int optionCounter = 0;
             Console.WriteLine(" Hi this is a SALAD BUILDER NIKITA 3000");
-            Console.WriteLine("///////////");
+            Console.WriteLine("\n");
             Console.WriteLine(" Let's build our own salad!");
-            Console.WriteLine("///////////");
+            Console.WriteLine("\n");
             Console.WriteLine(" Please choose your own content of the salad");
             Console.WriteLine(" You can choose from: ");
-            Console.WriteLine("//////////");
+            Console.WriteLine("\n");
             foreach (IngredientType ingredientType in ingredientTypes)
             {
                 Console.WriteLine($"{ingredientType.Name} - Max {ingredientType.MaxQuantity}");
